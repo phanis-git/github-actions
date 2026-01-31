@@ -1,0 +1,50 @@
+name: Inputs Demo Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter your username"
+        required: true
+        default: "phani"
+
+      environment:
+        description: "Select environment"
+        required: true
+        type: choice
+        options:
+          - dev
+          - qa
+          - prod
+        default: dev
+
+      debug:
+        description: "Enable debug mode?"
+        required: false
+        type: boolean
+        default: false
+
+      age:
+        description: "Enter age"
+        required: false
+        type: number
+        default: 25
+
+      message:
+        description: "Custom message"
+        required: false
+        type: string
+        default: "Hello from GitHub Actions"
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print inputs
+        run: |
+          echo "Username     : ${{ inputs.username }}"
+          echo "Environment  : ${{ inputs.environment }}"
+          echo "Debug Mode   : ${{ inputs.debug }}"
+          echo "Age          : ${{ inputs.age }}"
+          echo "Message      : ${{ inputs.message }}"
