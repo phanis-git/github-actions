@@ -1,0 +1,14 @@
+name: 01 - Hello World Workflow
+
+on:   # event name 
+  push:
+    branches:
+      - main       # push event on particular branch , if we want push event to any branch refer 02-file
+
+jobs:      # it contain multiple jobs
+  hello:   # it is job name 
+    runs-on: ubuntu-latest   # runs on which runner or which host 
+
+    steps:         # everyjob contains steps   
+      - name: Print Hello World
+        run: echo "01 - Hello World from GitHub Actions 🚀"
