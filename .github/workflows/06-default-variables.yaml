@@ -1,0 +1,39 @@
+name: Default Variables Demo
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  show-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print GitHub default variables        # these are github context variables
+        run: |
+          echo "Repository        : ${{ github.repository }}"
+          echo "Repository Owner  : ${{ github.repository_owner }}"
+          echo "Workflow Name     : ${{ github.workflow }}"
+          echo "Run ID            : ${{ github.run_id }}"
+          echo "Run Number        : ${{ github.run_number }}"
+          echo "Actor (User)      : ${{ github.actor }}"
+          echo "Event Name        : ${{ github.event_name }}"
+          echo "Ref               : ${{ github.ref }}"
+          echo "Branch Name       : ${{ github.ref_name }}"
+          echo "SHA               : ${{ github.sha }}"
+          echo "Workspace         : ${{ github.workspace }}"
+      - name: Printing Runner context variables
+        run: | 
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Name: ${{ runner.name }}"
+
+      - name: Printing env context variables
+        run: | 
+          echo "PATH: ${{ env.PATH }}"
+
+      - name: "Printing job context variables"
+        run: | 
+          echo "Job Status: ${{ job.status }}"
+
+
