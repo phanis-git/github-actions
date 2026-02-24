@@ -10,5 +10,5 @@ jobs:      # it contain multiple jobs
     runs-on: ubuntu-latest   # runs on which runner or which host 
 
     steps:         # everyjob contains steps   
-      - name: Print Hello World
+      - name: Print Hello World Workflow
         run: echo "01 - Hello World from GitHub Actions 🚀"
